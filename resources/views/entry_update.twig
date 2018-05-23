@@ -1,0 +1,16 @@
+{% extends "master.twig" %}
+
+{% block title %} {{ parent() }} Редактирование записи {% endblock %}
+
+{% block content %}
+    <main>
+        <form>
+            {{ method_field('PUT') }}
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="id" value="{{entry.id}}">
+            <label>Имя: <input name='name' value="{{entry.name}}"></label>
+            <label>Номер телефона: <input name='phone' value="{{entry.phone}}"></label>
+            <input type='submit' value="Редактировать запись">
+        </form>
+    </main>
+{% endblock %}

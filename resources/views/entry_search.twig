@@ -1,0 +1,16 @@
+{% extends "master.twig" %}
+
+{% block title %} {{ parent() }} Поиск {% endblock %}
+
+{% block content %}
+
+    <main>
+        <form action="/search" method="post">
+            <input type = "hidden" name="_token" value="{{ csrf_token() }}">
+            <label>Имя: <input name='name'></label>
+            <label>Номер телефона: <input name='phone'></label>
+            <input type='submit' value="Найти запись">
+        </form>
+    </main>
+
+{% endblock %}

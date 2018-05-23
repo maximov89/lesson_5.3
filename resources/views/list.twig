@@ -1,0 +1,30 @@
+{% extends "master.twig" %}
+
+{% block title %} {{ parent() }} Список контактов {% endblock %}
+
+{% block content %}
+    <main>
+        <table>
+            <tr>
+                <th>Имя</th>
+                <th>Номер телефона</th>
+                <th>Действия</th>
+            </tr>
+            {% for entry in entries %}
+                <tr>
+                    <td>{{entry.name}}</td>
+                    <td>{{entry.phone}}</td>
+                    <td>
+                        <a href="/entries/{{entry.id}}">Редактировать</a>
+                        <a href="/entries/{{entry.id}}">Удалить</a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+        <p><a href="/entries/create">Добавить запись</a></p>
+        {% block all %} {% endblock %}
+        {% block search %}<p><a href="/search">Поиск по записям</a></p> {% endblock %}
+    </main>
+{% endblock %}
